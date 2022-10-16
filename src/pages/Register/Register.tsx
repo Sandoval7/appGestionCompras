@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import RegisterComp from '../../components/RegisterComp/RegisterComp';
-import LoginComp from '../../components/LoginComp';
+import LoginComp from '../../components/LoginComp/LoginComp';
 import './Register.css'
 
 

@@ -2,6 +2,7 @@ import { onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndP
 import React, { useState, useRef } from 'react';
 import { auth } from '../../firebase/firebaseConfig';
 import './RegisterComp.css'
+import { useHistory } from "react-router-dom"
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 interface ContainerProps { }
@@ -13,6 +14,7 @@ const RegisterComp: React.FC<ContainerProps> = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const history = useHistory()
 
   //validacion de contraseña
   const validatePassword = () => {
@@ -68,6 +70,7 @@ const RegisterComp: React.FC<ContainerProps> = () => {
       await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in 
+          history.push("/login")
           console.log('enviado')
           const user = userCredential.user;
           // ...
