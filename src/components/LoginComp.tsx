@@ -1,4 +1,4 @@
-import './ExploreContainer.css';
+
 import { onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithCustomToken, signOut } from "firebase/auth";
 import React, { useState, useRef } from 'react';
 import { auth } from '../firebase/firebaseConfig';
@@ -16,12 +16,17 @@ const LoginComp: React.FC<ContainerProps> = () => {
 
 
 
-  const singInUser = async () => {
-    signInWithEmailAndPassword(auth, email, password)
+  const singInUser = async (event: any) => {
+    //hacer que no reacarge la pagina
+    const e = event || window.event;
+    e.preventDefault()
+    //firebase
+    await signInWithEmailAndPassword(auth, email, password)
     .then( async (res)  => {
       // Signed in
-      console.log('1')
-      const user =  await res.user;
+      const user =  res.user;
+      console.log(user)
+
       // ...
     })
     .catch((error) => {
@@ -45,7 +50,7 @@ const LoginComp: React.FC<ContainerProps> = () => {
           <div>
            <button >Login</button>
           </div>
-          <a href="/">Login</a>
+          <a href="/register">Register</a>
         </form>
       </div>
     </div>

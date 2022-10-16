@@ -1,9 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import LoginComp from '../components/LoginComp';
 import './Home.css';
 
-const Login: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -17,10 +15,10 @@ const Login: React.FC = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <LoginComp />
+        
       </IonContent>
     </IonPage>
   );
 };
 
-export default Login;
+export default Home;

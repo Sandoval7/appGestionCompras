@@ -21,6 +21,7 @@
     "@types/react-router-dom": "^5.1.7",
     "async": "^3.2.4",
     "firebase": "^9.11.0",
+    "ionic-icon": "^0.0.1-security",
     "ionicons": "^6.0.3",
     "node": "^18.10.0",
     "react": "^18.2.0",

@@ -1,7 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,11 +21,12 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 
 import {auth, Fb} from './firebase/firebaseConfig'
 import {onAuthStateChanged} from 'firebase/auth'
 import { useState } from 'react';
+import Register from './pages/Register/Register';
 
 
 setupIonicReact();
@@ -39,11 +40,14 @@ const App: React.FC = () => (
         <Route exact path="/home">
           <Home />
         </Route>
+        <Route exact path="/register">
+          <Register />
+        </Route>
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/register" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
